@@ -9,3 +9,5 @@ Still unfinished
  - [Abador](https://twitter.com/cheddorcheese?=HAj7ft1EdsLW8_yaRHT8EA&s=09) - Logo Designer.
  - [Alberton](https://twitter.com/AlbertAnIdiot?t=jc1uP5WVzxCVGZpO1ob_ZQ&s=09) - Animator.   
  - The Contribuitors.
+ -A dumbass bitch tying to go sickomode af :
+ -[GOODPROGAMER](https://youtube.com/@goodprogamer7205) - Modding the fuck out of this shit fnr
