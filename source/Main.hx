@@ -28,7 +28,7 @@ class Main extends Sprite
 		if (zoom == -1)
 		{
 			final ratioX:Int = stageWidth / gameWidth;
-			final ratioY:Int. = stageHeight / gameHeight;
+			final ratioY:Int = stageHeight / gameHeight;
 			zoom = Math.min(ratioX, ratioY);
 			gameWidth = Math.ceil(stageWidth / zoom);
 			gameHeight = Math.ceil(stageHeight / zoom);
