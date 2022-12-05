@@ -152,6 +152,11 @@ class ChartingState extends MusicBeatState
 		add(curRenderedSustains);
 
 		changeSection();
+
+                #if mobile		
+                addVirtualPad(LEFT_FULL, A_B_C);		
+                #end
+
 		super.create();
 	}
 
@@ -492,7 +497,7 @@ class ChartingState extends MusicBeatState
 				dummyArrow.y = Math.floor(FlxG.mouse.y / GRID_SIZE) * GRID_SIZE;
 		}
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (controls.ACCEPT)
 		{
 			lastSection = curSection;
 			FlxG.mouse.visible = false;
@@ -525,7 +530,7 @@ class ChartingState extends MusicBeatState
 
 		if (!typingShit.hasFocus)
 		{
-			if (FlxG.keys.justPressed.SPACE)
+			if (virtualPad.buttonC.pressed)
 			{
 				if (FlxG.sound.music.playing)
 				{
@@ -556,16 +561,16 @@ class ChartingState extends MusicBeatState
 				vocals.time = FlxG.sound.music.time;
 			}
 
-			if (!FlxG.keys.pressed.SHIFT)
+			if (controls.BACK)
 			{
-				if (FlxG.keys.pressed.W || FlxG.keys.pressed.S)
+				if (controls.UI_UP_P || controls.UI_DOWN_P)
 				{
 					FlxG.sound.music.pause();
 					vocals.pause();
 
 					var daTime:Float = 700 * FlxG.elapsed;
 
-					if (FlxG.keys.pressed.W)
+					if (controls.UI_UP_P)
 						FlxG.sound.music.time -= daTime;
 					else
 						FlxG.sound.music.time += daTime;
@@ -575,14 +580,14 @@ class ChartingState extends MusicBeatState
 			}
 			else
 			{
-				if (FlxG.keys.justPressed.W || FlxG.keys.justPressed.S)
+				if (controls.UI_UP_P || controls.UI_DOWN_P)
 				{
 					FlxG.sound.music.pause();
 					vocals.pause();
 
 					var daTime:Float = Conductor.stepCrochet * 2;
 
-					if (FlxG.keys.justPressed.W)
+					if (controls.UI_UP_P)
 						FlxG.sound.music.time -= daTime;
 					else
 						FlxG.sound.music.time += daTime;
@@ -597,9 +602,9 @@ class ChartingState extends MusicBeatState
 		var shiftThing:Int = 1;
 		if (FlxG.keys.pressed.SHIFT)
 			shiftThing = 4;
-		if (FlxG.keys.justPressed.RIGHT || FlxG.keys.justPressed.D)
+		if (controls.UI_RIGHT_P)
 			changeSection(curSection + shiftThing);
-		if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.A)
+		if (controls.UI_LEFT_P)
 			changeSection(curSection - shiftThing);
 
 		bpmTxt.text = FlxMath.roundDecimal(Conductor.songPosition / 1000, 2)
